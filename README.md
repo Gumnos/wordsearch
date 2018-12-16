@@ -1,9 +1,7 @@
 # wordsearch
 A word-search solution finder.
 
-By default it uses `/usr/share/dict/words` as the wordlist finding any
-word (3 characters or longer) in a word-search puzzle.
-
+## Usage
 ```
 Usage: wordsearch [options] puzzle.txt
 
@@ -20,14 +18,14 @@ Options:
                         Set the minimum length of interest (default=3)
 ```
 
-A puzzle is expected to be a text-file with equal-length lines such as
+A puzzle is a text-file with equal-length lines such as
 
 ```
 $ cat puzzle.txt
-gkqcxq
+jkqcxq
 sleety
 uybtjx
-nskxih
+niarih
 nphail
 ycoldo
 ```
@@ -39,6 +37,7 @@ dictionary:
 $ cat words_to_find.txt
 cold
 hail
+rain
 sleet
 sunny
 ```
@@ -46,13 +45,20 @@ sunny
 All words in both the dictionary and the puzzle are normalized to
 lowercase before searching.
 
+## Options
+
+By default it uses `/usr/share/dict/words` as the wordlist.
+This can be changed using the `-d WORDLIST` option.
+
 By default it will look for words diagonally, including backwards.
 These can be disabled by using the `--no-diagonals` and `--no-backwards`
 options.
 
-Additionally, words shorter than 3 letters are ignored by default.
+Additionally, words in the word-list shorter than 3 letters are ignored
+by default.
 The `-l LENGTH` option allows this to be changed.
-This is more useful when using a particular dictionary.
+This is more useful when using a large dictionary rather than a list of
+words expected to be found in the puzzle.
 
 Examples:
 
