@@ -57,6 +57,9 @@ hail at row 5, col 3 going east
 cold at row 6, col 2 going east
 ```
 
+This should run in both versions 2 and 3 of Python and has no
+dependencies outside the standard library.
+
 ## Options
 
 By default it uses `/usr/share/dict/words` as the wordlist.
