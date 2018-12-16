@@ -111,7 +111,7 @@ class Puzzle(object):
                         j2 += inc_j
 
 if __name__ == "__main__":
-    from sys import argv, exit
+    from sys import argv, exit, stderr
     import os
     from optparse import OptionParser, OptionGroup
     parser = OptionParser(
@@ -151,7 +151,12 @@ if __name__ == "__main__":
         parser.print_help()
         exit(1)
     fname = args[0]
-    puzzle = Puzzle(Puzzle.parse_file(fname))
+    data = Puzzle.parse_file(fname)
+    try:
+        puzzle = Puzzle(data)
+    except InvalidInput as e:
+        stderr.write("Malformed puzzle: %s\n" % e)
+        exit(1)
     dictionary = os.path.expanduser(options.dictionary)
     for answer in puzzle.find_words(
             Puzzle.build_dictionary(dictionary),
