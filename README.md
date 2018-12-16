@@ -45,6 +45,18 @@ sunny
 All words in both the dictionary and the puzzle are normalized to
 lowercase before searching.
 
+The output consists of the word, the `(row, column)` location of the
+starting letter, and the direction to follow to find the rest of the
+word:
+
+```
+sleet at row 2, col 1 going east
+sunny at row 2, col 1 going south
+rain at row 4, col 4 going west
+hail at row 5, col 3 going east
+cold at row 6, col 2 going east
+```
+
 ## Options
 
 By default it uses `/usr/share/dict/words` as the wordlist.
